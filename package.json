@@ -32,7 +32,7 @@
     "vite": "^5.2.0"
   },
   "lint-staged": {
-    "*.{ts,tsx}": "eslint --cache --fix",
+    "*.{ts,tsx}": "yarn lint",
     "*.{js,css,md}": "prettier --write"
   }
 }
