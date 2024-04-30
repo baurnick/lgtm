@@ -1,0 +1,20 @@
+import * as React from 'react';
+import ThemeToggle from '@/components/theme-toggle';
+
+const Header = ({ className }: string) => {
+  return (
+    <div className={className}>
+      <div className="flex flex-col">
+        <p className="text-base sm:text-lg md:text-xl lg:text-3xl font-mono font-bold">
+          LOOKS GOOD TO ME
+        </p>
+        <p className="text-xs font-mono font-thin">
+          PIMP YOUR GITLAB MERGE REQUESTS WITH STYLE!
+        </p>
+      </div>
+      <ThemeToggle />
+    </div>
+  );
+};
+
+export default Header;

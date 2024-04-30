@@ -1,0 +1,16 @@
+{
+    "gifs": [
+        {
+            "url": "http://media.giphy.com/media/3o85xJz5nUJl2sK8ms/giphy.gif",
+            "embeded_url": "https://giphy.com/embed/Od0QRnzwRBYmDU3eEO"
+        },
+        {
+            "url": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTBzaW5la29waGJ2eHRyNjB6M2Y4c2JnbmF2ajZ6cTV1cDB3MHZjOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9Ai5dIk8xvBm0/giphy.gif",
+            "embeded_url": "https://giphy.com/embed/9Ai5dIk8xvBm0"
+        },
+        {
+            "url": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHh2ZzhndGZkdDdsbWVocnJxdnRpN2F5azZ5N3RrbTNkYWtuZm1ydSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/11ISwbgCxEzMyY/giphy.gif",
+            "embeded_url": "https://giphy.com/embed/11ISwbgCxEzMyY"
+        }
+    ]
+}
