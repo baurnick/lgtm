@@ -11,6 +11,7 @@ function App() {
 
   const [gif, setGif] = React.useState(gifs.gifs[initialIndex]);
   const [gifIndex, setGifIndex] = React.useState(initialIndex);
+  const [markdownLink, setMarkdownLink] = React.useState('');
 
   const lastGifIndex = React.useRef(initialIndex);
 
@@ -24,6 +25,14 @@ function App() {
     setGif(gifs.gifs[newIndex]);
     lastGifIndex.current = newIndex;
   };
+
+  const generateMarkdownForGif = React.useCallback((gif) => {
+    setMarkdownLink(`![GIF](${gif.url})`);
+  }, []);
+
+  React.useEffect(() => {
+    generateMarkdownForGif(gif);
+  }, [gif, generateMarkdownForGif]);
 
   return (
     <>
@@ -53,8 +62,8 @@ function App() {
           </div>
           {/* Link box */}
           <div className="flex justify-between items-center border ring-offset-background bg-stone-100 rounded-lg w-full p-4 dark:bg-accent">
-            <p className="text-xs">Link</p>
-            <CopyToClipboardButton value="Link" />
+            <p className="text-xs truncate flex-1 pr-8">{markdownLink}</p>
+            <CopyToClipboardButton value={markdownLink} />
           </div>
         </div>
       </div>
