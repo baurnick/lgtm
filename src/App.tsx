@@ -6,13 +6,23 @@ import Header from '@/components/header';
 import gifs from '@/data/gifs.json';
 
 function App() {
-  const randomStartIndex = Math.floor(Math.random() * gifs.gifs.length);
-  const [gif, setGif] = React.useState(gifs.gifs[randomStartIndex]);
-  const value = 'Link';
+  const numberOfGifs = gifs.gifs.length;
+  const initialIndex = Math.floor(Math.random() * numberOfGifs);
+
+  const [gif, setGif] = React.useState(gifs.gifs[initialIndex]);
+  const [gifIndex, setGifIndex] = React.useState(initialIndex);
+
+  const lastGifIndex = React.useRef(initialIndex);
 
   const setCurrentGif = () => {
-    const randomIndex = Math.floor(Math.random() * gifs.gifs.length);
-    setGif(gifs.gifs[randomIndex]);
+    let newIndex;
+    do {
+      newIndex = Math.floor(Math.random() * numberOfGifs);
+    } while (newIndex === lastGifIndex.current);
+
+    setGifIndex(newIndex);
+    setGif(gifs.gifs[newIndex]);
+    lastGifIndex.current = newIndex;
   };
 
   return (
@@ -24,9 +34,10 @@ function App() {
           {/* Gif box */}
           <div className="flex flex-col items-center border ring-offset-background bg-stone-100 rounded-lg w-full p-4 dark:bg-accent">
             <iframe
-              src={gif.embeded_url}
-              width="300"
-              height="300"
+              id={gifIndex}
+              src={gif.embeded}
+              width="350"
+              height="350"
               className="rounded-lg"
             />
             <div className="flex flex-row-reverse w-full mt-2">
@@ -42,8 +53,8 @@ function App() {
           </div>
           {/* Link box */}
           <div className="flex justify-between items-center border ring-offset-background bg-stone-100 rounded-lg w-full p-4 dark:bg-accent">
-            <p className="text-xs">{value}</p>
-            <CopyToClipboardButton value={value} />
+            <p className="text-xs">Link</p>
+            <CopyToClipboardButton value="Link" />
           </div>
         </div>
       </div>

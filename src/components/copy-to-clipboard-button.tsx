@@ -16,12 +16,12 @@ const CopyToClipboardButton = ({ value }: CopyToClipboardButtonProps) => {
       await navigator.clipboard.writeText(value);
       setCheck(true);
       setTimeout(() => setCheck(false), DURATION);
-      toast.success('Copied to clipboard!', {
+      toast.success('Copied to clipboard', {
         duration: DURATION,
         className: 'text-xs font-mono font-thin',
       });
     } catch (err) {
-      toast.error('Failed to copy to clipboard!', {
+      toast.error('Failed to copy to clipboard', {
         duration: DURATION,
         className: 'text-xs font-mono font-thin',
       });
