@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { useTheme } from '@/hooks/useTheme';
 
-const ThemeToggle = () => {
+const ThemeToggle: React.FC = () => {
   const { setTheme } = useTheme();
 
   return (

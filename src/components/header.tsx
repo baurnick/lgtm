@@ -1,7 +1,11 @@
 import * as React from 'react';
 import ThemeToggle from '@/components/theme-toggle';
 
-const Header = ({ className }: string) => {
+interface HeaderProps {
+  className: string;
+}
+
+const Header: React.FC<HeaderProps> = ({ className }) => {
   return (
     <div className={className}>
       <div className="flex flex-col">

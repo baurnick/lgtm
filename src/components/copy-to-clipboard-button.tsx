@@ -7,7 +7,9 @@ type CopyToClipboardButtonProps = {
   value: string;
 };
 
-const CopyToClipboardButton = ({ value }: CopyToClipboardButtonProps) => {
+const CopyToClipboardButton: React.FC<CopyToClipboardButtonProps> = ({
+  value,
+}) => {
   const [check, setCheck] = React.useState(false);
   const DURATION: number = 1500;
 
