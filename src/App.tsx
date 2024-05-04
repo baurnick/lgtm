@@ -63,7 +63,6 @@ function App() {
         url,
         embeded: convertToEmbeddedUrl(url),
       });
-      console.log(gif);
     } catch (error: z.ZodError) {
       setError(error.errors[0].message);
     }
