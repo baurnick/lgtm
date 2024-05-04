@@ -8,6 +8,12 @@ import useKeyboardShortcut from './hooks/useKeyboardShortcut';
 import Page from '@/components/page';
 import Card from '@/components/card';
 import { Input } from '@/components/ui/input';
+import { z } from 'zod';
+
+const urlSchema = z
+  .string()
+  .url()
+  .refine((url) => url.endsWith('.gif'));
 
 function App() {
   const numberOfGifs = gifs.gifs.length;
@@ -17,6 +23,7 @@ function App() {
   const [gifIndex, setGifIndex] = React.useState(initialIndex);
   const [markdownLink, setMarkdownLink] = React.useState('');
   const [inputValue, setInputValue] = React.useState('');
+  const [error, setError] = React.useState<string | null>(null);
 
   const lastGifIndex = React.useRef(initialIndex);
 
@@ -26,6 +33,7 @@ function App() {
       newIndex = Math.floor(Math.random() * numberOfGifs);
     } while (newIndex === lastGifIndex.current);
 
+    clearInput();
     setGifIndex(newIndex);
     setGif(gifs.gifs[newIndex]);
     lastGifIndex.current = newIndex;
@@ -44,6 +52,35 @@ function App() {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setInputValue(value);
+    validateInput(value);
+  };
+
+  const validateInput = (url: string) => {
+    try {
+      urlSchema.parse(url);
+      setError(null);
+      setGif({
+        url,
+        embeded: convertToEmbeddedUrl(url),
+      });
+      console.log(gif);
+    } catch (error: z.ZodError) {
+      setError(error.errors[0].message);
+    }
+  };
+
+  const convertToEmbeddedUrl = (url: string) => {
+    const regex = /\/media\/.*\/(.*?)\/giphy\.gif$/;
+    const match = url.match(regex);
+
+    if (match && match[1]) {
+      return `https://giphy.com/embed/${match[1]}`;
+    }
+  };
+
+  const clearInput = () => {
+    setInputValue('');
+    setError(null);
   };
 
   return (
@@ -78,16 +115,18 @@ function App() {
               value={inputValue}
               onChange={onChange}
               placeholder="Markdownify GIPHY-url"
-              className="mr-2"
+              error={error}
             />
-            <Button
-              variant="outline"
-              size="default"
-              className="h-12 bg-red-600 hover:bg-red-400 dark:bg-red-600 dark:hover:bg-red-400"
-              onClick={() => setInputValue('')}
-            >
-              <Trash2 className="h-4 w-4" style={{ color: '#fff' }} />
-            </Button>
+            {inputValue && (
+              <Button
+                variant="outline"
+                size="default"
+                className="ml-2 h-12 bg-red-600 hover:bg-red-400 dark:bg-red-600 dark:hover:bg-red-400"
+                onClick={clearInput}
+              >
+                <Trash2 className="h-4 w-4" style={{ color: '#fff' }} />
+              </Button>
+            )}
           </div>
         </Page>
       </div>
