@@ -114,7 +114,7 @@ function App() {
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <div className="flex items-center gap-2 text-xs font-thin font-mono">
+                    <div className="flex items-center gap-2 text-sm font-thin font-mono">
                       <p>Click</p>
                       <div className=" text-white bg-slate-600 py-0.5 px-2 rounded-sm">
                         <p>r</p>
@@ -127,7 +127,7 @@ function App() {
             </div>
           </Card>
           <Card className="flex justify-between">
-            <p className="text-xs font-mono pr-8">Markdown to copy</p>
+            <p className="text-sm font-mono pr-8">Markdown to copy</p>
             <CopyToClipboardButton value={markdownLink} />
           </Card>
           <div className="flex justify-between items-start w-full">

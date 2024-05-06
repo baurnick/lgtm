@@ -12,7 +12,7 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
         <p className="text-base sm:text-lg md:text-xl lg:text-3xl font-mono font-bold">
           LOOKS GOOD TO ME
         </p>
-        <p className="text-xs font-mono font-thin">
+        <p className="text-sm font-mono font-thin">
           PIMP YOUR GITLAB MERGE REQUESTS WITH STYLE!
         </p>
       </div>
