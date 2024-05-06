@@ -16,6 +16,9 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 import { convertToEmbeddedUrl } from '@/lib/utils';
+import { useTheme } from '@/hooks/useTheme';
+import logo from '@/assets/logo.svg';
+import logo_dark from '@/assets/logo_dark.svg';
 
 const urlSchema = z
   .string()
@@ -28,6 +31,8 @@ interface Gif {
 }
 
 function App() {
+  const { theme } = useTheme();
+
   const numberOfGifs = gifs.gifs.length;
   const initialIndex = Math.floor(Math.random() * numberOfGifs);
 
@@ -149,6 +154,11 @@ function App() {
               </Button>
             )}
           </div>
+          <img
+            src={theme === 'light' ? logo : logo_dark}
+            alt="logo"
+            className="w-10 h-10 mx-auto mt-4"
+          />
         </Page>
       </div>
     </>
