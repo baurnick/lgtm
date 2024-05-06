@@ -2,6 +2,8 @@
 
 A fun, personal project to spice up your Gilab merge requets. This app offers a collection of 50 handpicked "looks-good-to-me" gifs to choose from. Additional you can convert any GIPHY link into Markdown.
 
+[looksgoodtome.app](https://looksgoodtome.app)
+
 ### Technologies
 
 Built with React framework, powered by Vite.
