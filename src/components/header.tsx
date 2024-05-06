@@ -12,8 +12,8 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
         <p className="text-base sm:text-lg md:text-xl lg:text-3xl font-mono font-bold">
           LOOKS GOOD TO ME
         </p>
-        <p className="text-sm font-mono font-thin">
-          PIMP YOUR GITLAB MERGE REQUESTS WITH STYLE!
+        <p className="text font-mono font-thin">
+          PIMP YOUR GITLAB MERGE REQUEST WITH STYLE!
         </p>
       </div>
       <ThemeToggle />

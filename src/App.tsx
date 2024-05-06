@@ -91,7 +91,7 @@ function App() {
 
   return (
     <>
-      <div className="container mt-8 max-w-[54rem]">
+      <div className="container mt-8 max-w-[60rem]">
         <Header className="flex justify-between items-center" />
         <Page>
           <Card className="flex flex-col">
