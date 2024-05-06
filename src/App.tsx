@@ -24,7 +24,7 @@ const urlSchema = z
 
 interface Gif {
   url: string;
-  embeded: string;
+  embeded: string | undefined;
 }
 
 function App() {
@@ -51,7 +51,7 @@ function App() {
     lastGifIndex.current = newIndex;
   }, [numberOfGifs]);
 
-  const generateMarkdownForGif = React.useCallback((gif) => {
+  const generateMarkdownForGif = React.useCallback((gif: Gif) => {
     setMarkdownLink(`![GIF](${gif.url})\n\n#lgtm`);
   }, []);
 
@@ -75,8 +75,12 @@ function App() {
         url,
         embeded: convertToEmbeddedUrl(url),
       });
-    } catch (error: z.ZodError) {
-      setError(error.errors[0].message);
+    } catch (error: unknown) {
+      if (error instanceof z.ZodError) {
+        setError(error.errors[0].message);
+      } else {
+        throw error;
+      }
     }
   };
 
@@ -89,10 +93,10 @@ function App() {
     <>
       <div className="container mt-8 max-w-[54rem]">
         <Header className="flex justify-between items-center" />
-        <Page className="flex flex-col space-y-4 justify-center items-center mt-4 w-full max-w-[54rem]">
+        <Page>
           <Card className="flex flex-col">
             <iframe
-              id={gifIndex}
+              id={gifIndex.toString()}
               src={gif.embeded}
               className="w-full sm:w-64 md:w-96 lg:w-128 aspect-square rounded-lg"
             />
