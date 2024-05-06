@@ -36,7 +36,7 @@ const CopyToClipboardButton: React.FC<CopyToClipboardButtonProps> = ({
       <Toaster richColors />
       <Button
         variant="outline"
-        size="iconsm"
+        size="icon"
         className="dark:bg-accent dark:hover:bg-card transition duration-150 ease-in-out"
         onClick={copyToClipBoard}
       >

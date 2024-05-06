@@ -106,7 +106,7 @@ function App() {
                   <TooltipTrigger asChild>
                     <Button
                       variant="outline"
-                      size="iconsm"
+                      size="icon"
                       className="dark:bg-accent dark:hover:bg-card "
                       onClick={setCurrentGif}
                     >
