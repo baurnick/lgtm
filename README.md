@@ -1,8 +1,6 @@
 # LGTM (Looks Good To Me) Gif Selector
 
-A fun, personal project to spice up your Gilab merge requets. This app offers a collection of 50 handpicked "looks-good-to-me" gifs to choose from. Additional you can convert any GIPHY link into Markdown.
-
-[looksgoodtome.app](https://looksgoodtome.app)
+This app offers a collection of 50 handpicked "looks-good-to-me" gifs to choose from. Additional you can convert any GIPHY link into Markdown.
 
 ### Technologies
 
